@@ -35,9 +35,9 @@
 	</properties>
 
 	<scm>
-		<connection>scm:git:https://github.com/lsu-ub-uu/cora-indexmessenger.git</connection>
-		<developerConnection>scm:git:https://github.com/lsu-ub-uu/cora-indexmessenger.git</developerConnection>
-		<url>https://github.com/lsu-ub-uu/cora-indexmessenger.git</url>
+		<connection>scm:git:https://github.com/lsu-ub-uu/alvin-indexmessenger.git</connection>
+		<developerConnection>scm:git:https://github.com/lsu-ub-uu/alvin-indexmessenger.git</developerConnection>
+		<url>https://github.com/lsu-ub-uu/alvin-indexmessenger.git</url>
 		<tag>HEAD</tag>
 	</scm>
 
