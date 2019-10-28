@@ -53,8 +53,11 @@ public class AlvinMessageParser implements MessageParser {
 	}
 
 	private boolean messageIsFromClassic(Map<String, String> headers) {
-		return !(headers.containsKey("messageSentFrom")
-				&& "Cora".equals(headers.get("messageSentFrom")));
+		boolean fromClassic = true;
+		String origin = headers.get("messageSentFrom");
+		if (origin != null && "Cora".equals(origin))
+			fromClassic = false;
+		return fromClassic;
 	}
 
 	private void extractRecordIdFromHeaders(Map<String, String> headers) {
