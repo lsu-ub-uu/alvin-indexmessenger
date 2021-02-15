@@ -29,7 +29,6 @@ import java.util.Map;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import se.uu.ub.cora.alvin.indexmessenger.AlvinMessageParser;
 import se.uu.ub.cora.indexmessenger.log.LoggerFactorySpy;
 import se.uu.ub.cora.indexmessenger.parser.MessageParser;
 import se.uu.ub.cora.logger.LoggerProvider;
