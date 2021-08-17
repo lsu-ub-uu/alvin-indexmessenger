@@ -39,20 +39,26 @@ public class MessageParserSpy implements MessageParser {
 	}
 
 	@Override
-	public String getParsedId() {
+	public boolean shouldWorkOrderBeCreatedForMessage() {
+		return createWorkOrder;
+	}
+
+	@Override
+	public String getRecordId() {
 		getParsedIdWasCalled = true;
 		return "someParsedIdFromMessageParserSpy";
 	}
 
 	@Override
-	public String getParsedType() {
+	public String getRecordType() {
 		getParsedTypeWasCalled = true;
 		return "someParsedTypeFromMessageParserSpy";
 	}
 
 	@Override
-	public boolean shouldWorkOrderBeCreatedForMessage() {
-		return createWorkOrder;
+	public String getModificationType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -64,7 +64,7 @@ public class AlvinMessageParserTest {
 	@Test
 	public void testMessageParserReturnsCorrectId() throws Exception {
 		messageParser.parseHeadersAndMessage(headers, message);
-		assertEquals(messageParser.getParsedId(), headers.get("PID"));
+		assertEquals(messageParser.getRecordId(), headers.get("PID"));
 		assertTrue(messageParser.shouldWorkOrderBeCreatedForMessage());
 	}
 
@@ -73,14 +73,14 @@ public class AlvinMessageParserTest {
 		headers.put("PID", "alvin-person:2");
 
 		messageParser.parseHeadersAndMessage(headers, message);
-		assertEquals(messageParser.getParsedId(), headers.get("PID"));
+		assertEquals(messageParser.getRecordId(), headers.get("PID"));
 		assertTrue(messageParser.shouldWorkOrderBeCreatedForMessage());
 	}
 
 	@Test
 	public void testMessageParserReturnsCorrectType() throws Exception {
 		messageParser.parseHeadersAndMessage(headers, message);
-		assertEquals(messageParser.getParsedType(), "place");
+		assertEquals(messageParser.getRecordType(), "place");
 		assertTrue(messageParser.shouldWorkOrderBeCreatedForMessage());
 	}
 
@@ -90,7 +90,7 @@ public class AlvinMessageParserTest {
 				+ "\"action\":\"UPDATE\",\"dsId\":null,"
 				+ "\"headers\":{\"ACTION\":\"UPDATE\",\"PID\":\"alvin-person:22\"}}";
 		messageParser.parseHeadersAndMessage(headers, message);
-		assertEquals(messageParser.getParsedType(), "person");
+		assertEquals(messageParser.getRecordType(), "person");
 		assertTrue(messageParser.shouldWorkOrderBeCreatedForMessage());
 	}
 
@@ -146,6 +146,11 @@ public class AlvinMessageParserTest {
 		headers.put("messageSentFrom", "NOTFromCora");
 		messageParser.parseHeadersAndMessage(headers, message);
 		assertTrue(messageParser.shouldWorkOrderBeCreatedForMessage());
+	}
+
+	@Test
+	public void testGetModificationTypeAlwaysReturnsUpdate() throws Exception {
+		assertEquals(messageParser.getModificationType(), "update");
 	}
 
 }

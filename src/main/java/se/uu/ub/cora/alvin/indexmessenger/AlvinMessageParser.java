@@ -30,9 +30,10 @@ import se.uu.ub.cora.logger.LoggerProvider;
 
 public class AlvinMessageParser implements MessageParser {
 	private Logger logger = LoggerProvider.getLoggerForClass(AlvinMessageParser.class);
-	private String parsedRecordId;
-	private String parsedRecordType;
+	private String recordId;
+	private String recordType;
 	private boolean workOrderShouldBeCreated = true;
+	private String onlyUpdateImplementedSoFarImportantIsDeleteUsedForRemovingIndexing = "update";
 
 	@Override
 	public void parseHeadersAndMessage(Map<String, String> headers, String message) {
@@ -64,14 +65,14 @@ public class AlvinMessageParser implements MessageParser {
 		if (!headers.containsKey("PID")) {
 			throw IndexMessageException.withMessage("No pid found in header");
 		}
-		parsedRecordId = headers.get("PID");
+		recordId = headers.get("PID");
 	}
 
 	private void extractRecordTypeIdFromMessage(String message) {
 		Matcher matcher = createMatcherForRecordType(message);
 		boolean matchFound = matcher.find();
 		throwErrorIfRecordTypeNotFound(matchFound);
-		parsedRecordType = matcher.group(1);
+		recordType = matcher.group(1);
 	}
 
 	private Matcher createMatcherForRecordType(String message) {
@@ -96,17 +97,22 @@ public class AlvinMessageParser implements MessageParser {
 	}
 
 	@Override
-	public String getParsedId() {
-		return parsedRecordId;
-	}
-
-	@Override
-	public String getParsedType() {
-		return parsedRecordType;
-	}
-
-	@Override
 	public boolean shouldWorkOrderBeCreatedForMessage() {
 		return workOrderShouldBeCreated;
+	}
+
+	@Override
+	public String getRecordId() {
+		return recordId;
+	}
+
+	@Override
+	public String getRecordType() {
+		return recordType;
+	}
+
+	@Override
+	public String getModificationType() {
+		return onlyUpdateImplementedSoFarImportantIsDeleteUsedForRemovingIndexing;
 	}
 }
