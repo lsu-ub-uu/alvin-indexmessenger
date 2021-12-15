@@ -24,7 +24,7 @@
 
 	<properties>
 		<logger.version>2.4.0</logger.version>
-		<coralog4j.version>2.5.0</coralog4j.version>
+		<coralog4j.version>2.6.0</coralog4j.version>
 		<indexmessenger.version>1.7.0</indexmessenger.version>
 		<rabbitmq.version>2.4.0</rabbitmq.version>
 		<amqp-client.version>5.14.0</amqp-client.version>
