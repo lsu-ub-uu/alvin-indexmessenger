@@ -18,7 +18,7 @@
 	</parent>
 
 	<artifactId>alvinindexmessenger</artifactId>
-	<version>1.7.0</version>
+	<version>1.7.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Alvin indexmessenger</name>
 
@@ -35,7 +35,7 @@
 		<connection>scm:git:https://github.com/lsu-ub-uu/alvin-indexmessenger.git</connection>
 		<developerConnection>scm:git:https://github.com/lsu-ub-uu/alvin-indexmessenger.git</developerConnection>
 		<url>https://github.com/lsu-ub-uu/alvin-indexmessenger.git</url>
-		<tag>alvinindexmessenger-1.7.0</tag>
+		<tag>release/1.7</tag>
 	</scm>
 
 	<dependencies>
