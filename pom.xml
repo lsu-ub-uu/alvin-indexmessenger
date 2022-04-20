@@ -28,7 +28,8 @@
 		<indexmessenger.version>1.9.0</indexmessenger.version>
 		<rabbitmq.version>2.6.0</rabbitmq.version>
 		<amqp-client.version>5.14.2</amqp-client.version>
-
+		
+		<mavenshadeplugin.version>3.3.0</mavenshadeplugin.version>
 	</properties>
 
 	<scm>
@@ -77,6 +78,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
+				<version>${mavenshadeplugin.version}</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
